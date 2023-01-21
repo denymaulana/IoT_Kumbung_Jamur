@@ -11,7 +11,7 @@ DHT dht(DHTPIN, DHTTYPE);
 //Seting Jaringan.
 const char* ssid = "Redmi6";
 const char* password = "DM0987654321";
-const char* host = "192.168.43.60"; //Alamat IP server
+const char* host = "192.168.43.000"; //Alamat IP server
 
 //Deklarasi variabel sensor
 float temp;
@@ -189,7 +189,7 @@ Serial.print(d_cahaya);
   String Link;
   HTTPClient http;
   //saat mengeksekusi kirimdata.php maka dia mengirim nilai sensornya ke variabel sensornya
-//Link = "http://192.168.43.60/IoT_Kumbung_Jamur/arduino/write.php?suhu=" + String(temp) + "&kelembapan=" + String(hum) + "&cahaya=" + String(ldr) + "&suhu_d=" + String(d_suhu) + "&kelembapan_d=" + String(d_lembap) + "&cahaya_d=" + String(d_cahaya);
+//Link = "http://192.168.43.000/IoT_Kumbung_Jamur/arduino/write.php?suhu=" + String(temp) + "&kelembapan=" + String(hum) + "&cahaya=" + String(ldr) + "&suhu_d=" + String(d_suhu) + "&kelembapan_d=" + String(d_lembap) + "&cahaya_d=" + String(d_cahaya);
 Link = "http://" + String(host) + "/arduino/write.php?suhu=" + String(temp) + "&kelembapan=" + String(hum) + "&cahaya=" + String(ldr) + "&suhu_d=" + String(d_suhu) + "&kelembapan_d=" + String(d_lembap) + "&cahaya_d=" + String(d_cahaya);
   //Eksekusi Link
   http.begin(Link);
